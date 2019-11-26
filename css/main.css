@@ -142,4 +142,19 @@
   color: #3B3B98;
   font-size: 10vh;
 }
+
+.active {
+  color: #fff;
+  background: #ee5253;
+  pointer-events: none;
+}
+
+@media screen and (max-width: 425px) {
+  .score-container {
+    display: none !important;
+  }
+  .game-container {
+    width: 90% !important;
+  }
+}
 /*# sourceMappingURL=main.css.map */

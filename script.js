@@ -8,10 +8,8 @@ for(let i = 0; i < areaArr.length; i++){
         answer += i;
         answerArr.push(i);
         areaArr[i].innerText = "X";
-        areaArr[i].style.backgroundColor = "#f00";
+        areaArr[i].classList.add("active"); 
         areaCount[i] = 9;
-        console.log(answer);
-        console.log(answerArr);
         random();
     }
 }
@@ -24,26 +22,26 @@ function random(){
         answerArr.push(rand);
         areaCount[rand] = (areaCount[rand] / areaCount[rand]) + 8;
         areaArr[rand].innerText = "O";
-        areaArr[rand].style.backgroundColor = "blue";
+        areaArr[rand].classList.add("active"); 
+        areaArr[rand].style.backgroundColor = "#0abde3";
         console.log(answer);
+        console.log(answerArr);
         lastCountCheck();
     } 
     else {
         random();
     }
-    
 }
 function lastCountCheck(){
-    if(answerArr.length > 7){
+    if(answerArr.length >= 8 ){
         answer = 36 - answer;
         areaArr[answer].innerText = "O";
-        areaArr[answer].style.backgroundColor = "blue";
+        areaArr[answer].classList.add("active");
+        areaArr[answer].style.backgroundColor = "#0abde3";
         console.log(areaArr[answer], "answer");
+        let loc = function(){
+            location.replace("https://datomezz.github.io/TicTacToe/");
+        }
+        setInterval(loc, 3000);
     }
 }
-// else if (areaCount[0] + areaCount[1] + areaCount[2] + areaCount[3] +
-//     areaCount[4] + areaCount[5] + areaCount[6] + areaCount[7] + areaCount[8] > 72){
-//     let answer = (areaCount[0] + areaCount[1] + areaCount[2] + areaCount[3] +
-//     areaCount[4] + areaCount[5] + areaCount[6] + areaCount[7] + areaCount[8]) % 9;
-//     areaArr[answer].innerText = "O";
-// } 
