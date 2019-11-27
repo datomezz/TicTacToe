@@ -1,7 +1,4 @@
 .switcher {
-  position: absolute;
-  right: 5vh;
-  top: 5vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -112,10 +109,10 @@ input:checked + .slider:before {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
+  -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -130,6 +127,7 @@ input:checked + .slider:before {
   cursor: pointer;
   -webkit-transition: .3s ease;
   transition: .3s ease;
+  margin-bottom: 2vh;
 }
 
 .container {

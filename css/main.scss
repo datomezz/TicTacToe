@@ -13,13 +13,13 @@
     @include flex(column, flex-start, center);
 }
 .header{
-    @include flex(row, center, center);
+    @include flex(column, center, center);
     color: #fff;
     padding: 2rem 0;
-
     h1{
         cursor: pointer;
         transition: .3s ease;
+        margin-bottom: 2vh;
     }
 }
 .container{

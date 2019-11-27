@@ -39,7 +39,6 @@ for(let i = 0; i < areaArr.length; i++){
         areaArr[i].innerText = "X";
         areaArr[i].classList.add("active"); 
         areaCount[i] = 9;
-        console.log(areaCount,"X");
         winnerChoose("XXX");
         if(answerArr.length >= 8){
             winnerChoose("XXX");
@@ -57,9 +56,8 @@ function random(){
         areaArr[rand].innerText = "O";
         areaArr[rand].classList.add("active"); 
         areaArr[rand].style.backgroundColor = "#0abde3";
-
+        
         winnerChoose("OOO");
-        console.log(areaCount,"O");
     } 
     else {
         random();

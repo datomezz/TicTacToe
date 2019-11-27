@@ -1,7 +1,4 @@
 .switcher{
-    position: absolute;
-    right: 5vh;
-    top: 5vh;   
     @include flex(row, space-between, center);
     .switch__text{
         font-size: 4vh;
