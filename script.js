@@ -1,7 +1,6 @@
 let areaArr = document.querySelectorAll(".game-element");
 let areaCount = [0,1,2,3,4,5,6,7,8];
-let answerArr = new Array();
-let answer = 0;
+let answerArr = new Array(); // used to disable random() at 9th element
 
 let playerScore = 0;
 let botScore = 0;
@@ -13,13 +12,17 @@ document.querySelector("#bot-score").innerText = botScore;
 
 for(let i = 0; i < areaArr.length; i++){
         function action(i){
-        answer += i;
         answerArr.push(i);
         areaArr[i].innerText = "X";
         areaArr[i].classList.add("active"); 
         areaCount[i] = 9;
-        random();
+        console.log(areaCount,"X");
         winnerChoose("XXX");
+        if(answerArr.length >= 8){
+            winnerChoose("XXX");
+        } else {
+        random();
+        }
     }
 }
 
@@ -27,14 +30,14 @@ function random(){
     let rand = Math.floor(Math.random() * areaCount.length);
 
     if(areaCount[rand] != 9){
-        answer += rand;
         answerArr.push(rand);
+        areaCount[rand] = 9;
         areaArr[rand].innerText = "O";
         areaArr[rand].classList.add("active"); 
         areaArr[rand].style.backgroundColor = "#0abde3";
-        console.log(answer);
-        console.log(answerArr);
+
         winnerChoose("OOO");
+        console.log(areaCount,"O");
     } 
     else {
         random();
