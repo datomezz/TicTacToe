@@ -3,6 +3,11 @@ let areaCount = [0,1,2,3,4,5,6,7,8];
 let answerArr = new Array();
 let answer = 0;
 
+let playerScore = 0;
+let botScore = 0;
+// parseInt(sessionStorage.getItem("pscore"));
+// parseInt(sessionStorage.getItem("bscore"));
+
 for(let i = 0; i < areaArr.length; i++){
         function action(i){
         answer += i;
@@ -11,6 +16,7 @@ for(let i = 0; i < areaArr.length; i++){
         areaArr[i].classList.add("active"); 
         areaCount[i] = 9;
         random();
+        winnerChoose("XXX");
     }
 }
 
@@ -20,28 +26,46 @@ function random(){
     if(areaCount[rand] != 9){
         answer += rand;
         answerArr.push(rand);
-        areaCount[rand] = (areaCount[rand] / areaCount[rand]) + 8;
         areaArr[rand].innerText = "O";
         areaArr[rand].classList.add("active"); 
         areaArr[rand].style.backgroundColor = "#0abde3";
         console.log(answer);
         console.log(answerArr);
-        lastCountCheck();
+        winnerChoose("OOO");
     } 
     else {
         random();
     }
 }
-function lastCountCheck(){
-    if(answerArr.length >= 8 ){
-        answer = 36 - answer;
-        areaArr[answer].innerText = "O";
-        areaArr[answer].classList.add("active");
-        areaArr[answer].style.backgroundColor = "#0abde3";
-        console.log(areaArr[answer], "answer");
-        let loc = function(){
-            location.replace("https://datomezz.github.io/TicTacToe/");
-        }
-        setInterval(loc, 3000);
+
+function winnerChoose(y){
+    let x = document.querySelectorAll(".game-container a");
+    let header = document.querySelector(".header h1");
+    let result = y.match(/O/m) || y.match(/X/m);
+    if(x[0].innerText + x[1].innerText + x[2].innerText === y ||
+       x[3].innerText + x[4].innerText + x[5].innerText === y ||
+       x[6].innerText + x[7].innerText + x[8].innerText === y ||
+       
+       x[0].innerText + x[3].innerText + x[6].innerText === y ||
+       x[1].innerText + x[4].innerText + x[7].innerText === y ||
+       x[2].innerText + x[5].innerText + x[8].innerText === y ||
+
+       x[0].innerText + x[4].innerText + x[8].innerText === y ||
+       x[2].innerText + x[4].innerText + x[6].innerText === y ){
+       header.innerText = result + " - WIN";
+       header.style.fontSize = "14vh";
+       if(result = "X"){
+           playerScore += 1;
+           document.querySelector("#player-score").innerText = playerScore;
+           sessionStorage.setItem("pscore", playerScore);
+       } else if (result = "O") {
+            botScore += 1;
+            document.querySelector("#bot-score").innerText = botScore;
+            sessionStorage.setItem("bscore", botScore);
+       }
+       for(let i = 0; i < x.length; i++){
+           x[i].style.pointerEvents = "none";
+       }
+       
     }
 }

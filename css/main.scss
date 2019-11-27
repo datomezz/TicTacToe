@@ -15,8 +15,10 @@
     @include flex(row, center, center);
     color: #fff;
     padding: 2rem 0;
+
     h1{
         cursor: pointer;
+        transition: .3s ease;
     }
 }
 .container{
@@ -28,7 +30,7 @@
     width: 80vh;
     display: grid;
     border: 2px solid #fff;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 2px;
     background-color: #fff;
     border-radius: 10px;
@@ -36,8 +38,9 @@
 .game-element{
     display: flex;
     justify-content: center;
+    align-items: center;
     background-color: #82589F;
-    padding: 1.5rem 0;
+    height: 20vh;
     color: #82589F;
     font-size: 10vh;
     transition: .3s ease;
@@ -59,8 +62,8 @@
     }
     .score{
         @include flex(row, center, center);
-
-        padding: 4vh;
+        width: 20vh;
+        height: 20vh;
         background: #fff;
         border-radius: 15px;
         color: #3B3B98;

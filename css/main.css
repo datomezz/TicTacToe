@@ -45,6 +45,8 @@
 
 .header h1 {
   cursor: pointer;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
 }
 
 .container {
@@ -69,8 +71,8 @@
   display: -ms-grid;
   display: grid;
   border: 2px solid #fff;
-  -ms-grid-columns: auto auto auto;
-      grid-template-columns: auto auto auto;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 2px;
   background-color: #fff;
   border-radius: 10px;
@@ -83,8 +85,11 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   background-color: #82589F;
-  padding: 1.5rem 0;
+  height: 20vh;
   color: #82589F;
   font-size: 10vh;
   -webkit-transition: .3s ease;
@@ -136,7 +141,8 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 4vh;
+  width: 20vh;
+  height: 20vh;
   background: #fff;
   border-radius: 15px;
   color: #3B3B98;
