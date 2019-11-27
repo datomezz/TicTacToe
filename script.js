@@ -1,14 +1,37 @@
 let areaArr = document.querySelectorAll(".game-element");
 let areaCount = [0,1,2,3,4,5,6,7,8];
 let answerArr = new Array(); // used to disable random() at 9th element
+let header = document.querySelector(".header h1");
 
-let playerScore = 0;
-let botScore = 0;
-document.querySelector("#player-score").innerText = playerScore;
-document.querySelector("#bot-score").innerText = botScore;
+let switcher = 0;
 
-// parseInt(sessionStorage.getItem("pscore"));
-// parseInt(sessionStorage.getItem("bscore"));
+let player1 = new String();
+let player2 = new String();
+
+function toggle(){
+    for(let i = 0; i < areaArr.length; i++){
+        areaArr[i].getAttributeNode("onclick").value = "versus(" + i + ")";
+    }
+}
+
+for(let i = 0; i < areaArr.length; i++){
+    function versus(i){
+        answerArr.push(i);
+        console.log(answerArr);
+        if(answerArr.length % 2 == 0){
+            areaArr[i].innerText = "O";
+            areaArr[i].classList.add("active"); 
+            areaArr[i].style.backgroundColor = "#0abde3";
+            header.innerText = "X's Turn";
+            winnerChoose("OOO");
+        } else if(answerArr.length % 2 == 1){
+            areaArr[i].innerText = "X";
+            areaArr[i].classList.add("active");
+            header.innerText = "O's Turn";
+            winnerChoose("XXX");
+        }
+    }
+}
 
 for(let i = 0; i < areaArr.length; i++){
         function action(i){
@@ -28,7 +51,6 @@ for(let i = 0; i < areaArr.length; i++){
 
 function random(){
     let rand = Math.floor(Math.random() * areaCount.length);
-
     if(areaCount[rand] != 9){
         answerArr.push(rand);
         areaCount[rand] = 9;
@@ -44,9 +66,10 @@ function random(){
     }
 }
 
+
+
 function winnerChoose(y){
     let x = document.querySelectorAll(".game-container a");
-    let header = document.querySelector(".header h1");
     let result = y.match(/O/m) || y.match(/X/m);
     if(x[0].innerText + x[1].innerText + x[2].innerText === y ||
        x[3].innerText + x[4].innerText + x[5].innerText === y ||
@@ -60,18 +83,9 @@ function winnerChoose(y){
        x[2].innerText + x[4].innerText + x[6].innerText === y ){
        header.innerText = result + " - WIN";
        header.style.fontSize = "14vh";
-       if(result = "X"){
-           playerScore += 1;
-           document.querySelector("#player-score").innerText = playerScore;
-           sessionStorage.setItem("pscore", playerScore);
-       } else if (result = "O") {
-            botScore += 1;
-            document.querySelector("#bot-score").innerText = botScore;
-            sessionStorage.setItem("bscore", botScore);
-       }
+
        for(let i = 0; i < x.length; i++){
            x[i].style.pointerEvents = "none";
        }
-       
     }
 }

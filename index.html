@@ -10,7 +10,7 @@
 <body class="body">
     <div class="switcher">
         <label class="switch">
-            <input type="checkbox">
+            <input type="checkbox" onclick="toggle()">
             <span class="slider round"></span>
         </label>
     </div>
@@ -18,10 +18,6 @@
         <h1>Tic Tac Toe</h1>
     </header>
     <article class="container">
-        <div class="score-container">
-            <p class="score-name">YOU</p>
-            <div class="score" id="player-score">0</div>
-        </div>
         <div class="game-container">
             <a href="javascript:void(0)" onclick="action(0)" class="game-element"></a>
             <a href="javascript:void(0)" onclick="action(1)" class="game-element"></a>
@@ -32,10 +28,6 @@
             <a href="javascript:void(0)" onclick="action(6)" class="game-element"></a>
             <a href="javascript:void(0)" onclick="action(7)" class="game-element"></a>
             <a href="javascript:void(0)" onclick="action(8)" class="game-element"></a>
-        </div>
-        <div class="score-container">
-            <p class="score-name">BOT</p>
-            <div class="score" id="bot-score">0</div>
         </div>
     </article>
 <script src="script.js"></script>
