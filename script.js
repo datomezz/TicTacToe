@@ -5,6 +5,9 @@ let answer = 0;
 
 let playerScore = 0;
 let botScore = 0;
+document.querySelector("#player-score").innerText = playerScore;
+document.querySelector("#bot-score").innerText = botScore;
+
 // parseInt(sessionStorage.getItem("pscore"));
 // parseInt(sessionStorage.getItem("bscore"));
 
