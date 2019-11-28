@@ -28,7 +28,7 @@ for(let i = 0; i < areaArr.length; i++){
             areaArr[i].classList.add("active"); 
             areaArr[i].style.backgroundColor = "#0abde3";
             header.innerText = "X's Turn";
-            click_sound.play();
+            botClick_sound.play();
             winnerChoose("OOO");
         } else if(answerArr.length % 2 == 1){
             areaArr[i].innerText = "X";
@@ -94,5 +94,8 @@ function winnerChoose(y){
        for(let i = 0; i < x.length; i++){
            x[i].style.pointerEvents = "none";
        }
+       setInterval(function(){
+        window.location.href = "https://datomezz.github.io/TicTacToe/";
+       }, 3000);
     }
 }
