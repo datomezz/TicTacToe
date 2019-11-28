@@ -3,9 +3,9 @@ let areaCount = [0,1,2,3,4,5,6,7,8];
 let answerArr = new Array(); // used to disable random() at 9th element
 let header = document.querySelector(".header h1");
 
-const click_sound = new Audio("../audio/click.mp3");
-const botClick_sound = new Audio("../audio/botClick.mp3");
-const finish_sound = new Audio("../audio/finish.mp3");
+const click_sound = new Audio("click.mp3");
+const botClick_sound = new Audio("botClick.mp3");
+const finish_sound = new Audio("finish.mp3");
 
 
 let switcher = 0;
