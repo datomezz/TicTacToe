@@ -8,7 +8,7 @@ const botClick_sound = new Audio();
 const finish_sound = new Audio();
 click_sound.src = "audio/click.mp3";
 botClick_sound.src = "audio/botClick.mp3";
-finish_sound.src = "finish.mp3";
+finish_sound.src = "audio/finish.mp3";
 
 
 let switcher = 0;
